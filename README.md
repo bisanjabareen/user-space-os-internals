@@ -33,7 +33,7 @@ TBD
 
 
 # Deadline
-daeadline: 1 week (2/13/26), flexible can extend. We are using deadlines so we can hold each other accountable.
+daeadline: 1 week (2/10/26), flexible can extend. We are using deadlines so we can hold each other accountable.
 
 
 # Next steps:
