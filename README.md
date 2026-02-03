@@ -10,7 +10,7 @@ In malloc/malloc/realloc (don't have to do all three, recommended if you have ti
 
 In free:
 - Add the block to the linked list. 
-- Can try to merge (would be more efficient to do if we save more metadata/overhead in the nodes)
+- Can try to merge (would be more efficient to do if we save more metadata/overhead in the nodes and if the list is sorted, don't have to merge for now, can do it optionally)
 
 
 # How to handle free memory?
