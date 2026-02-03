@@ -4,8 +4,8 @@ Malloc is where most of the thinking lies. In buddy allocation systems, we use m
 
 
 # Overview of what needs to be done:
-In malloc/malloc/realloc (don't have to do all three, recommended if you have time):
-- First, priorotize free blocks in the linked list: use the strategies first-fit/ best-fit/ worst-fit + any additional logic for the specific function
+In malloc/calloc/realloc (don't have to do all three, recommended if you have time):
+- First, prioritize free blocks in the linked list: use the strategies first-fit/ best-fit/ worst-fit + any additional logic for the specific function
 - In the absence of free blocks that can be used for the allocation, use SBRK (unless we are implementing buddy allocation in which case we should use MMAP)
 
 In free:
@@ -33,8 +33,8 @@ TBD
 
 
 # Deadline
-daeadline: 1 week (2/10/26), flexible can extend. We are using deadlines so we can hold each other accountable.
+deadline: 1 week (2/10/26), flexible can extend. We are using deadlines so we can hold each other accountable.
 
 
 # Next steps:
-We will work on buddy allocation OR kernel (kernel preferrably)
+We will work on buddy allocation OR kernel (kernel preferably)
