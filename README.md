@@ -1,40 +1,36 @@
-# Memory Allocator
-We will implement Malloc, Free, Realloc and Calloc.
-Malloc is where most of the thinking lies. In buddy allocation systems, we use mmap. 
+# sh2-malloc-allocator
 
+Custom memory allocator using sbrk() with first-fit strategy.
 
-# Overview of what needs to be done:
-In malloc/calloc/realloc (don't have to do all three, recommended if you have time):
-- First, prioritize free blocks in the linked list: use the strategies first-fit/ best-fit/ worst-fit + any additional logic for the specific function
-- In the absence of free blocks that can be used for the allocation, use SBRK (unless we are implementing buddy allocation in which case we should use MMAP)
+## Features
 
-In free:
-- Add the block to the linked list. 
-- Can try to merge (would be more efficient to do if we save more metadata/overhead in the nodes and if the list is sorted, don't have to merge for now, can do it optionally)
+- First-fit allocation
+- Explicit free list
+- Block splitting
+- Coalescing
+- 8-byte alignment
 
+## Build
+```bash
+gcc -o test src/sh2_malloc.c tests/test.c -I./include
+```
 
-# How to handle free memory?
-For now we have decided to have a linked list. The linked list will contain the free memory blocks.
-For now, the list can just have a next pointer to the next node and the size of the block. 
+## Run
+```bash
+./test
+```
 
-## How to handle coalescing?
-- can try to merge in free for now.
+## API
 
-## How to handle allocation with the presence of free space in the list
-- need a strategy: best fit? first fit etc ... (do all three)
+- `void *sh2_malloc(size_t size)` - Allocate memory
+- `void sh2_free(void *ptr)` - Free memory
+- `void print_free_list(void)` - Debug helper
 
-
-# Notes:
-- Can implement funcs that print the status of the heap (for debugging purposes). Things like amount of free blocks (or amount of free bytes), amount of allocated blocks etc etc. (optional)
-
-
-# Git Structure
-TBD
-
-
-# Deadline
-deadline: 1 week (2/10/26), flexible can extend. We are using deadlines so we can hold each other accountable.
-
-
-# Next steps:
-We will work on buddy allocation OR kernel (kernel preferably)
+## Structure
+```
+.
+├── include/sh2_malloc.h
+├── src/sh2_malloc.c
+├── tests/test.c
+└── README.md
+```
